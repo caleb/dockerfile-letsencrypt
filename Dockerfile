@@ -1,9 +1,9 @@
-from debian:latest
+FROM debian:latest
 RUN apt-get update \ 
     && apt-get install -y \
         git-core 
-run git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt/src
-run /opt/letsencrypt/src/letsencrypt-auto --os-packages-only && \
+RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt/src
+RUN /opt/letsencrypt/src/letsencrypt-auto --os-packages-only && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* \
            /tmp/* \
